@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fresh Bread & Food Compliance Hub</title>
+<meta name="description" content="Affordable daily bread delivery for households and professional food compliance support for local restaurants. Community-focused service.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+  --primary: #0E3B43;
+  --primary-light: #1a5c68;
+  --accent: #F4A261;
+  --accent-hover: #e07a3f;
+  --teal: #1F7A8C;
+  --teal-light: #2a9db3;
+  --cream: #FFF8F0;
+  --light-bg: #f5f7fa;
+  --text: #2d3436;
+  --text-light: #636e72;
+  --white: #ffffff;
+  --shadow: 0 10px 40px rgba(0,0,0,0.08);
+  --shadow-hover: 0 20px 60px rgba(0,0,0,0.12);
+  --radius: 16px;
+  --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--light-bg);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 0;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  background: rgba(14, 59, 67, 0.97);
+  backdrop-filter: blur(12px);
+  padding: 12px 0;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo i {
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 10px 24px !important;
+  background: var(--accent);
+  color: var(--white) !important;
+  border-radius: 30px;
+  font-weight: 600 !important;
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ========== HERO ========== */
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, #0a2e34 50%, var(--primary-light) 100%);
+  color: white;
+  padding: 160px 20px 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(244,162,97,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(31,122,140,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.hero-badge i {
+  color: var(--accent);
+}
+
+header h1 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+header h1 span {
+  color: var(--accent);
+}
+
+header p {
+  font-size: 1.15rem;
+  max-width: 620px;
+  margin: 0 auto 35px;
+  opacity: 0.9;
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(244,162,97,0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+  box-shadow: none;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.hero-stat {
+  text-align: center;
+}
+
+.hero-stat .number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.hero-stat .label {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== SECTIONS ========== */
+section {
+  padding: 90px 0;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--teal);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.section-label i {
+  font-size: 0.8rem;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 2.4rem;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* ========== ABOUT ========== */
+.about-grid {
+  display: grid;
+  gap: 60px;
+  align-items: center;
+}
+
+@media(min-width:768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-text p {
+  color: var(--text-light);
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.about-highlights {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.about-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 22px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.about-highlights li:hover {
+  transform: translateX(6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.about-highlights li .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.icon-bread { background: #FFF3E4; color: var(--accent); }
+.icon-truck { background: #E8F5E9; color: #2e7d32; }
+.icon-shield { background: #E3F2FD; color: var(--teal); }
+.icon-users { background: #F3E5F5; color: #7b1fa2; }
+
+.about-highlights li strong {
+  display: block;
+  color: var(--primary);
+  margin-bottom: 2px;
+  font-size: 0.95rem;
+}
+
+.about-highlights li span {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ========== SERVICES ========== */
+.services-section {
+  background: var(--white);
+}
+
+.services-grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media(min-width:768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.service-card {
+  background: var(--light-bg);
+  padding: 40px 35px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(31,122,140,0.1);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 22px;
+}
+
+.service-icon-bread {
+  background: linear-gradient(135deg, #FFF3E4, #FFE0B2);
+  color: var(--accent);
+}
+
+.service-icon-compliance {
+  background: linear-gradient(135deg, #E0F2F1, #B2DFDB);
+  color: var(--teal);
+}
+
+.service-card h3 {
+  font-size: 1.35rem;
+  color: var(--primary);
+  margin-bottom: 14px;
+}
+
+.service-card > p {
+  color: var(--text-light);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.service-features {
+  list-style: none;
+  padding: 0;
+}
+
+.service-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.service-features li i {
+  color: var(--teal);
+  font-size: 0.8rem;
+  width: 20px;
+  height: 20px;
+  background: rgba(31,122,140,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========== SHOP ========== */
+.shop-section {
+  background: var(--light-bg);
+}
+
+.shop-grid {
+  display: grid;
+  gap: 28px;
+}
+
+@media(min-width:600px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(min-width:960px) {
+  .shop-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-body {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.tag-bread {
+  background: #FFF3E4;
+  color: var(--accent);
+}
+
+.tag-course {
+  background: #E0F2F1;
+  color: var(--teal);
+}
+
+.product-body h3 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.product-body .product-desc {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.product-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.product-price small {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-light);
+}
+
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.qty-row label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  border: 2px solid #e8ecef;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.qty-control button {
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--light-bg);
+  color: var(--primary);
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-control button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.qty-control input {
+  width: 44px;
+  height: 36px;
+  border: none;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--white);
+  -moz-appearance: textfield;
+}
+
+.qty-control input::-webkit-outer-spin-button,
+.qty-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(244,162,97,0.4);
+}
+
+.add-to-cart-btn.added {
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+}
+
+/* ========== FLOATING CART ========== */
+.floating-cart {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(244,162,97,0.4);
+  z-index: 998;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-cart:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(244,162,97,0.5);
+}
+
+.cart-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e53935;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid white;
+  transition: var(--transition);
+}
+
+.cart-badge.empty {
+  transform: scale(0);
+}
+
+.cart-badge.bounce {
+  animation: cartBounce 0.4s ease;
+}
+
+@keyframes cartBounce {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* ========== CART SIDEBAR ========== */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 90vw;
+  height: 100vh;
+  background: var(--white);
+  z-index: 1101;
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.15);
+}
+
+.cart-sidebar.open {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border-bottom: 1px solid #e8ecef;
+}
+
+.cart-header h3 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-header h3 .cart-count {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: var(--accent);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.cart-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-close:hover {
+  background: var(--light-bg);
+  color: var(--primary);
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+
+.cart-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+.cart-empty i {
+  font-size: 3rem;
+  color: #ddd;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.cart-empty p {
+  font-size: 0.95rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+}
+
+.cart-item-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cart-item-info h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-info .cart-item-price {
+  font-size: 0.85rem;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.cart-item-qty {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-item-qty button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #e8ecef;
+  border-radius: 6px;
+  background: var(--light-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.cart-item-qty button:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.cart-item-qty span {
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: #e53935;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 6px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.cart-item-remove:hover {
+  background: #ffebee;
+}
+
+.cart-footer {
+  padding: 20px 24px;
+  border-top: 1px solid #e8ecef;
+  background: var(--light-bg);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cart-total span {
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.cart-total strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--primary);
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+}
+
+.checkout-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ========== CHECKOUT MODAL ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.checkout-modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(30px) scale(0.95);
+  transition: var(--transition);
+}
+
+.modal-overlay.open .checkout-modal {
+  transform: translateY(0) scale(1);
+}
+
+.checkout-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  border-bottom: 1px solid #e8ecef;
+}
+
+.checkout-modal-header h3 {
+  font-size: 1.25rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkout-modal-header h3 i {
+  color: #25D366;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--text-light);
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--light-bg);
+}
+
+.checkout-body {
+  padding: 28px;
+}
+
+.checkout-summary {
+  background: var(--light-bg);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 24px;
+}
+
+.checkout-summary h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.checkout-summary-items {
+  list-style: none;
+  padding: 0;
+}
+
+.checkout-summary-items li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.checkout-summary-items li span:last-child {
+  font-weight: 600;
+}
+
+.checkout-summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  margin-top: 10px;
+  border-top: 2px solid #ddd;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--primary);
+}
+
+.checkout-form .form-group {
+  margin-bottom: 18px;
+}
+
+.checkout-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid #e8ecef;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.92rem;
+  transition: var(--transition);
+  background: var(--white);
+  color: var(--text);
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(31,122,140,0.1);
+}
+
+.whatsapp-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(37,211,102,0.35);
+}
+
+.whatsapp-btn i {
+  font-size: 1.2rem;
+}
+
+/* ========== WHY CHOOSE US ========== */
+.why-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media(min-width:768px) {
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.why-card {
+  text-align: center;
+  padding: 40px 30px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.why-card .why-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 1.5rem;
+  transition: var(--transition);
+}
+
+.why-card:hover .why-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.why-card h3 {
+  font-size: 1.15rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.why-card p {
+  color: var(--text-light);
+  font-size: 0.92rem;
+}
+
+/* ========== TESTIMONIALS ========== */
+.testimonials-section {
+  background: var(--white);
+}
+
+.testimonials-grid {
+  display: grid;
+  gap: 30px;
+}
+
+@media(min-width:768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.testimonial-card {
+  padding: 35px 30px;
+  background: var(--light-bg);
+  border-radius: var(--radius);
+  position: relative;
+  transition: var(--transition);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.testimonial-card .stars {
+  color: #f9a825;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+}
+
+.testimonial-card blockquote {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.testimonial-author strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--primary);
+}
+
+.testimonial-author span {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+/* ========== CTA BANNER ========== */
+.cta-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  padding: 80px 0;
+  text-align: center;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(244,162,97,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.cta-banner h2 {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-banner p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-banner .btn {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== CONTACT ========== */
+.contact-section {
+  background: var(--white);
+}
+
+.contact-grid {
+  display: grid;
+  gap: 50px;
+}
+
+@media(min-width:768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+.contact-info h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.contact-info > p {
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-details li .detail-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-details li strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.contact-details li span {
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.contact-form {
+  background: var(--light-bg);
+  padding: 40px;
+  border-radius: var(--radius);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 2px solid #e8ecef;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  background: var(--white);
+  color: var(--text);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(31,122,140,0.1);
+}
+
+.contact-form select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23636e72' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.form-row {
+  display: grid;
+  gap: 20px;
+}
+
+@media(min-width:500px) {
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, var(--teal), var(--primary-light));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(31,122,140,0.3);
+}
+
+.success-message {
+  display: none;
+  margin-top: 16px;
+  padding: 16px 20px;
+  background: #E8F5E9;
+  color: #2e7d32;
+  border-radius: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.success-message i {
+  margin-right: 8px;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--primary);
+  color: white;
+  padding: 60px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+@media(min-width:768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand .logo {
+  margin-bottom: 16px;
+  display: inline-flex;
+}
+
+.footer-brand p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.9rem;
+  max-width: 320px;
+  line-height: 1.7;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.footer-socials a {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.footer-socials a:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.footer-col h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--white);
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 12px;
+}
+
+.footer-col ul a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.footer-col ul a:hover {
+  color: var(--accent);
+  padding-left: 4px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 24px 0;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:768px) {
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(14,59,67,0.98);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    gap: 25px;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+  }
+
+  .mobile-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+  }
+
+  .nav-links.active .mobile-close {
+    display: block;
+  }
+
+  header {
+    padding: 130px 20px 80px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .hero-stats {
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat .number {
+    font-size: 1.6rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+
+  .cta-banner h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media(max-width:480px) {
+  header h1 {
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="logo"><i class="fas fa-bread-slice"></i> The Bakery</a>
+    <ul class="nav-links" id="navLinks">
+      <button class="mobile-close" id="navClose"><i class="fas fa-times"></i></button>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact" class="nav-cta">Get In Touch</a></li>
+    </ul>
+    <button class="mobile-toggle" id="navToggle" aria-label="Open navigation menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="container">
+    <div class="hero-badge">
+      <i class="fas fa-star"></i> Trusted by families & restaurants across the community
+    </div>
+    <h1>Fresh Bread Delivered.<br><span>Safer Restaurants</span> Built.</h1>
+    <p>
+      Affordable daily bread for households and professional compliance support for local restaurants.
+      Simple. Reliable. Community-focused.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn"><i class="fas fa-arrow-right"></i> Get Started</a>
+      <a href="#services" class="btn btn-outline"><i class="fas fa-th-large"></i> Our Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="number">50+</div>
+        <div class="label">Families Served</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">50+</div>
+        <div class="label">Restaurant Partners</div>
+      </div>
+      <div class="hero-stat">
+        <div class="number">99%</div>
+        <div class="label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="text-center" style="text-align:center;">
+      <div class="section-label"><i class="fas fa-heart"></i> Who We Are</div>
+      <h2 class="section-title">Community-Driven.<br>Quality-Focused.</h2>
+      <p class="section-subtitle">
+        We believe every family deserves fresh bread and every restaurant deserves to operate with confidence.
+      </p>
+    </div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>
+          We are a community-driven food business focused on two things:
+          making quality bread affordable for families and helping local
+          restaurants operate safely and professionally.
+        </p>
+        <p>
+          Our mission is simple — support households with reliable daily bread
+          delivery and strengthen small food businesses through compliance and training.
+          We're here to make a difference, one loaf and one kitchen at a time.
+        </p>
+      </div>
+      <ul class="about-highlights">
+        <li>
+          <div class="icon icon-bread"><i class="fas fa-bread-slice"></i></div>
+          <div>
+            <strong>Affordable Bread Subscriptions</strong>
+            <span>Weekly and monthly plans for every budget</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon icon-truck"><i class="fas fa-truck"></i></div>
+          <div>
+            <strong>Reliable Local Delivery</strong>
+            <span>Fresh to your door, right on schedule</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon icon-shield"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <strong>Compliance Guidance (CoA)</strong>
+            <span>Navigate regulations with expert help</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon icon-users"><i class="fas fa-users"></i></div>
+          <div>
+            <strong>Staff Training Workshops</strong>
+            <span>Hospitality & kitchen excellence programs</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label"><i class="fas fa-concierge-bell"></i> What We Offer</div>
+      <h2 class="section-title">Services Tailored to Your Needs</h2>
+      <p class="section-subtitle">
+        Whether you're a household craving fresh bread or a restaurant seeking compliance support — we've got you covered.
+      </p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon service-icon-bread">
+          <i class="fas fa-bread-slice"></i>
+        </div>
+        <h3>For Households — Bread Delivery</h3>
+        <p>
+          Freshly baked white and brown bread delivered to your home or local shop.
+          Weekly and monthly subscription options available at prices everyone can afford.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Affordable pricing for every family</li>
+          <li><i class="fas fa-check"></i> Reliable daily & weekly delivery</li>
+          <li><i class="fas fa-check"></i> Perfect for families, schools & events</li>
+          <li><i class="fas fa-check"></i> Flexible subscription plans</li>
+        </ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon service-icon-compliance">
+          <i class="fas fa-clipboard-check"></i>
+        </div>
+        <h3>For Restaurants — Compliance & Training</h3>
+        <p>
+          We help food businesses meet health regulations and improve kitchen standards.
+          Get support with Certificate of Acceptability (CoA) and food safety processes.
+        </p>
+        <ul class="service-features">
+          <li><i class="fas fa-check"></i> Compliance preparation support</li>
+          <li><i class="fas fa-check"></i> Hygiene systems & SOP guidance</li>
+          <li><i class="fas fa-check"></i> Staff hospitality training workshops</li>
+          <li><i class="fas fa-check"></i> Ongoing advisory & inspections</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop" class="shop-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label"><i class="fas fa-shopping-bag"></i> Our Shop</div>
+      <h2 class="section-title">Order Fresh From The Bakery</h2>
+      <p class="section-subtitle">
+        Browse our freshly baked products and courses. Add to cart, checkout, and we'll handle the rest via WhatsApp.
+      </p>
+    </div>
+    <div class="shop-grid">
+
+      <!-- Product 1: White Bread -->
+      <div class="product-card reveal" data-id="white-bread" data-name="White Bread Loaf" data-price="15">
+        <img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400&h=300&fit=crop&auto=format" alt="White Bread Loaf" class="product-img" loading="lazy">
+        <div class="product-body">
+          <span class="product-tag tag-bread">Bakery</span>
+          <h3>White Bread Loaf</h3>
+          <p class="product-desc">Soft, fluffy white bread baked fresh daily. Perfect for sandwiches, toast, or enjoying on its own.</p>
+          <div class="product-price">R15 <small>/ loaf</small></div>
+          <div class="qty-row">
+            <label>Qty:</label>
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(this, -1)">−</button>
+              <input type="number" value="1" min="1" max="50">
+              <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart(this)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2: Brown Bread -->
+      <div class="product-card reveal" data-id="brown-bread" data-name="Brown Bread Loaf" data-price="18">
+        <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop&auto=format" alt="Brown Bread Loaf" class="product-img" loading="lazy">
+        <div class="product-body">
+          <span class="product-tag tag-bread">Bakery</span>
+          <h3>Brown Bread Loaf</h3>
+          <p class="product-desc">Wholesome brown bread packed with fibre and goodness. A healthier choice for the whole family.</p>
+          <div class="product-price">R18 <small>/ loaf</small></div>
+          <div class="qty-row">
+            <label>Qty:</label>
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(this, -1)">−</button>
+              <input type="number" value="1" min="1" max="50">
+              <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart(this)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3: Artisan Seed Loaf -->
+      <div class="product-card reveal" data-id="seed-loaf" data-name="Artisan Seed Loaf" data-price="35">
+        <img src="https://images.unsplash.com/photo-1586444248879-bc604bc77dbb?w=400&h=300&fit=crop&auto=format" alt="Artisan Seed Loaf" class="product-img" loading="lazy">
+        <div class="product-body">
+          <span class="product-tag tag-bread">Bakery</span>
+          <h3>Artisan Seed Loaf</h3>
+          <p class="product-desc">Premium hand-crafted loaf topped with sunflower, sesame, and flax seeds. A crunchy, nutritious treat.</p>
+          <div class="product-price">R35 <small>/ loaf</small></div>
+          <div class="qty-row">
+            <label>Qty:</label>
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(this, -1)">−</button>
+              <input type="number" value="1" min="1" max="50">
+              <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart(this)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Course: Food Safety -->
+      <div class="product-card reveal" data-id="food-safety-course" data-name="Food Safety & Hygiene Course" data-price="450">
+        <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?w=400&h=300&fit=crop&auto=format" alt="Food Safety Course" class="product-img" loading="lazy">
+        <div class="product-body">
+          <span class="product-tag tag-course">Short Course</span>
+          <h3>Food Safety & Hygiene Course</h3>
+          <p class="product-desc">A hands-on workshop covering food safety, hygiene best practices, and compliance essentials for kitchen staff.</p>
+          <div class="product-price">R450 <small>/ person</small></div>
+          <div class="qty-row">
+            <label>Seats:</label>
+            <div class="qty-control">
+              <button type="button" onclick="changeQty(this, -1)">−</button>
+              <input type="number" value="1" min="1" max="20">
+              <button type="button" onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+          <button class="add-to-cart-btn" onclick="addToCart(this)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label"><i class="fas fa-award"></i> Why Choose Us</div>
+      <h2 class="section-title">Built on Trust, Driven by Quality</h2>
+      <p class="section-subtitle">
+        Here's what sets us apart from the rest.
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon" style="background:#FFF3E4; color:#F4A261;">
+          <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <h3>Community First</h3>
+        <p>We're rooted in the community — built to serve families and local businesses with care and integrity.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon" style="background:#E0F2F1; color:#1F7A8C;">
+          <i class="fas fa-medal"></i>
+        </div>
+        <h3>Quality Guaranteed</h3>
+        <p>Every loaf is baked fresh. Every compliance plan is crafted to the highest industry standards.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon" style="background:#E8EAF6; color:#3F51B5;">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>Always Reliable</h3>
+        <p>On-time delivery and consistent support you can count on, day in and day out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label"><i class="fas fa-quote-left"></i> Testimonials</div>
+      <h2 class="section-title">What Our Community Says</h2>
+      <p class="section-subtitle">
+        Real stories from the families and businesses we serve.
+      </p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <blockquote>
+          "The bread is always fresh and delivered right on time. My family loves it — and the price is unbeatable!"
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #F4A261, #e07a3f);">TM</div>
+          <div>
+            <strong>Thandi M.</strong>
+            <span>Household Customer</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <blockquote>
+          "They helped us get our CoA and completely transformed our kitchen processes. We couldn't have done it without them."
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #1F7A8C, #0E3B43);">SN</div>
+          <div>
+            <strong>Sipho N.</strong>
+            <span>Restaurant Owner</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <blockquote>
+          "Professional, affordable, and community-focused. This is exactly what our area needed. Highly recommend!"
+        </blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" style="background: linear-gradient(135deg, #7b1fa2, #9c27b0);">LK</div>
+          <div>
+            <strong>Lerato K.</strong>
+            <span>School Administrator</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Ready to Get Started?</h2>
+    <p>Join hundreds of families and restaurants already benefiting from our services.</p>
+    <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Us Today</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label"><i class="fas fa-envelope"></i> Get In Touch</div>
+      <h2 class="section-title">We'd Love to Hear From You</h2>
+      <p class="section-subtitle">
+        Have a question or ready to place an order? Drop us a message and we'll get back to you quickly.
+      </p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <h3>Let's Talk</h3>
+        <p>Whether you need bread delivered or help getting your restaurant compliant, we're here for you.</p>
+        <ul class="contact-details">
+          <li>
+            <div class="detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <strong>Location</strong>
+              <span>Community-Based, Local Delivery</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <strong>Phone</strong>
+              <span>Available on request</span>
+            </div>
+          </li>
+          <li>
+            <div class="detail-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <strong>Hours</strong>
+              <span>Mon — Sat: 6AM to 6PM</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="interest">I'm Interested In</label>
+          <select id="interest">
+            <option value="">Select an option...</option>
+            <option value="bread">Bread Delivery</option>
+            <option value="compliance">Restaurant Compliance</option>
+            <option value="training">Staff Training</option>
+            <option value="both">Both Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Tell us a bit more about what you need..."></textarea>
+        </div>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        <div class="success-message" id="successMessage">
+          <i class="fas fa-check-circle"></i> Thank you! We will contact you shortly.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FLOATING CART BUTTON -->
+<button class="floating-cart" id="floatingCart" onclick="openCart()">
+  <i class="fas fa-shopping-cart"></i>
+  <span class="cart-badge empty" id="cartBadge">0</span>
+</button>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3><i class="fas fa-shopping-cart"></i> Your Cart <span class="cart-count" id="cartCount">0 items</span></h3>
+    <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <i class="fas fa-shopping-basket"></i>
+      <p>Your cart is empty.<br>Browse our shop and add some items!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong id="cartTotal">R0</strong>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()"><i class="fab fa-whatsapp"></i> Checkout via WhatsApp</button>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutOverlay">
+  <div class="checkout-modal">
+    <div class="checkout-modal-header">
+      <h3><i class="fab fa-whatsapp"></i> Complete Your Order</h3>
+      <button class="modal-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="checkout-body">
+      <div class="checkout-summary">
+        <h4>Order Summary</h4>
+        <ul class="checkout-summary-items" id="checkoutSummaryItems"></ul>
+        <div class="checkout-summary-total">
+          <span>Total</span>
+          <span id="checkoutTotal">R0</span>
+        </div>
+      </div>
+      <form class="checkout-form" id="checkoutForm" onsubmit="sendToWhatsApp(event)">
+        <div class="form-group">
+          <label for="custName"><i class="fas fa-user"></i> Full Name *</label>
+          <input type="text" id="custName" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="custPhone"><i class="fas fa-phone"></i> Phone Number *</label>
+          <input type="tel" id="custPhone" placeholder="e.g. 063 237 3611" required>
+        </div>
+        <div class="form-group">
+          <label for="custAddress"><i class="fas fa-map-marker-alt"></i> Delivery Address *</label>
+          <input type="text" id="custAddress" placeholder="Street, area, city" required>
+        </div>
+        <div class="form-group">
+          <label for="custNote"><i class="fas fa-sticky-note"></i> Special Notes (optional)</label>
+          <textarea id="custNote" rows="3" placeholder="Any delivery instructions or special requests..."></textarea>
+        </div>
+        <button type="submit" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Send Order via WhatsApp</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo"><i class="fas fa-bread-slice"></i> The Bakery</a>
+        <p>
+          Supporting households with affordable bread and helping restaurants build safer, compliant kitchens. Community-first, always.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Bread Delivery</a></li>
+          <li><a href="#services">CoA Support</a></li>
+          <li><a href="#services">Staff Training</a></li>
+          <li><a href="#services">Compliance Audits</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Fresh Bread & Food Compliance Hub. All rights reserved. Supporting Families & Local Businesses.
+    </div>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+const navClose = document.getElementById('navClose');
+
+navToggle.addEventListener('click', () => navLinks.classList.add('active'));
+navClose.addEventListener('click', () => navLinks.classList.remove('active'));
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('active'));
+});
+
+// Scroll reveal animation
+const revealElements = document.querySelectorAll('.reveal');
+const revealOnScroll = () => {
+  revealElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 80) {
+      el.classList.add('visible');
+    }
+  });
+};
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Contact form submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    document.getElementById('successMessage').style.display = 'block';
+    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+    this.reset();
+    setTimeout(() => {
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      btn.disabled = false;
+      document.getElementById('successMessage').style.display = 'none';
+    }, 4000);
+  }, 1200);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ========== CART SYSTEM ==========
+const WHATSAPP_NUMBER = '27632373611';
+let cart = [];
+
+function changeQty(btn, delta) {
+  const input = btn.parentElement.querySelector('input');
+  let val = parseInt(input.value) || 1;
+  val = Math.max(1, Math.min(parseInt(input.max) || 50, val + delta));
+  input.value = val;
+}
+
+function addToCart(btn) {
+  const card = btn.closest('.product-card');
+  const id = card.dataset.id;
+  const name = card.dataset.name;
+  const price = parseFloat(card.dataset.price);
+  const qty = parseInt(card.querySelector('.qty-control input').value) || 1;
+  const img = card.querySelector('.product-img').src;
+
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    cart.push({ id, name, price, qty, img });
+  }
+
+  // Button feedback
+  const originalHTML = btn.innerHTML;
+  btn.classList.add('added');
+  btn.innerHTML = '<i class="fas fa-check"></i> Added!';
+  setTimeout(() => {
+    btn.classList.remove('added');
+    btn.innerHTML = originalHTML;
+  }, 1500);
+
+  updateCartUI();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCartUI();
+  renderCartItems();
+}
+
+function updateCartItemQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) {
+    removeFromCart(id);
+    return;
+  }
+  updateCartUI();
+  renderCartItems();
+}
+
+function getCartTotal() {
+  return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+}
+
+function getCartCount() {
+  return cart.reduce((sum, item) => sum + item.qty, 0);
+}
+
+function updateCartUI() {
+  const badge = document.getElementById('cartBadge');
+  const count = getCartCount();
+  badge.textContent = count;
+  badge.classList.toggle('empty', count === 0);
+  badge.classList.remove('bounce');
+  void badge.offsetWidth; // trigger reflow
+  badge.classList.add('bounce');
+
+  document.getElementById('cartCount').textContent = count + ' item' + (count !== 1 ? 's' : '');
+  document.getElementById('cartTotal').textContent = 'R' + getCartTotal().toFixed(0);
+
+  const cartFooter = document.getElementById('cartFooter');
+  const cartEmpty = document.getElementById('cartEmpty');
+  if (cart.length > 0) {
+    cartFooter.style.display = 'block';
+    cartEmpty.style.display = 'none';
+  } else {
+    cartFooter.style.display = 'none';
+    cartEmpty.style.display = 'block';
+  }
+}
+
+function renderCartItems() {
+  const container = document.getElementById('cartItems');
+  const emptyMsg = document.getElementById('cartEmpty');
+
+  // Remove old cart-item elements
+  container.querySelectorAll('.cart-item').forEach(el => el.remove());
+
+  cart.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <span class="cart-item-price">R${item.price} × ${item.qty} = R${item.price * item.qty}</span>
+      </div>
+      <div class="cart-item-qty">
+        <button onclick="updateCartItemQty('${item.id}', -1)">−</button>
+        <span>${item.qty}</span>
+        <button onclick="updateCartItemQty('${item.id}', 1)">+</button>
+      </div>
+      <button class="cart-item-remove" onclick="removeFromCart('${item.id}')" title="Remove"><i class="fas fa-trash-alt"></i></button>
+    `;
+    container.insertBefore(div, emptyMsg);
+  });
+}
+
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('open');
+  document.getElementById('cartSidebar').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderCartItems();
+}
+
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.getElementById('cartSidebar').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openCheckout() {
+  if (cart.length === 0) return;
+  closeCart();
+
+  // Fill summary
+  const summaryList = document.getElementById('checkoutSummaryItems');
+  summaryList.innerHTML = '';
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span>${item.name} × ${item.qty}</span><span>R${item.price * item.qty}</span>`;
+    summaryList.appendChild(li);
+  });
+  document.getElementById('checkoutTotal').textContent = 'R' + getCartTotal().toFixed(0);
+
+  document.getElementById('checkoutOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckout() {
+  document.getElementById('checkoutOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close checkout if clicking overlay background
+document.getElementById('checkoutOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeCheckout();
+});
+
+function sendToWhatsApp(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('custName').value.trim();
+  const phone = document.getElementById('custPhone').value.trim();
+  const address = document.getElementById('custAddress').value.trim();
+  const note = document.getElementById('custNote').value.trim();
+
+  if (!name || !phone || !address) return;
+
+  // Build message
+  let msg = `🛒 *NEW ORDER — The Bakery*\n`;
+  msg += `━━━━━━━━━━━━━━━━━━\n\n`;
+  msg += `👤 *Customer:* ${name}\n`;
+  msg += `📞 *Phone:* ${phone}\n`;
+  msg += `📍 *Address:* ${address}\n`;
+  if (note) msg += `📝 *Note:* ${note}\n`;
+  msg += `\n━━━━━━━━━━━━━━━━━━\n`;
+  msg += `📦 *Order Details:*\n\n`;
+
+  cart.forEach((item, i) => {
+    msg += `${i + 1}. ${item.name}\n`;
+    msg += `   Qty: ${item.qty} — R${item.price * item.qty}\n\n`;
+  });
+
+  msg += `━━━━━━━━━━━━━━━━━━\n`;
+  msg += `💰 *TOTAL: R${getCartTotal().toFixed(0)}*\n`;
+  msg += `━━━━━━━━━━━━━━━━━━`;
+
+  const encoded = encodeURIComponent(msg);
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+
+  window.open(url, '_blank');
+
+  // Clear cart after sending
+  cart = [];
+  updateCartUI();
+  closeCheckout();
+  document.getElementById('checkoutForm').reset();
+}
+</script>
+
+</body>
+</html>
